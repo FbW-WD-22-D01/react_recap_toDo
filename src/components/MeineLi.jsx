@@ -6,7 +6,6 @@ import React from 'react'
 function MeineLi(props) {
   
     function handleClick(e){
-       
         console.log('Soll gelöscht werden: ',props.todo, 'soll gelöscht werden aus: ', props.liste)
        
         //  Das Listen-Array wird gefiltert und das Ergebnis in einer lokalen Variablen gespeichert
@@ -18,9 +17,12 @@ function MeineLi(props) {
     
     }
   
-    function toggleSolved(){
+
+    function toggleSolved(e){
+
       console.log('Props: ',props.solved, ' von ', props.todo)
-      const result = props.liste.map( (el ) => {
+      const result = props.liste.map( (el, index ) => {
+        console.log( 'Index: ',index, 'Event', e.target )
         if (el.content === props.todo){
           el.solved = !el.solved
           return el
