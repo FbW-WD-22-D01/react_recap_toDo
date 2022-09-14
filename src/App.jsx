@@ -4,13 +4,16 @@ import MeineUl from './components/MeineUl'
 
 function App() {
   const [input, setInput] = useState('')
-  const [liste, setListe] = useState(['erstes to do'])
+  const [liste, setListe] = useState([{content: 'erstes to do', solved: true}])
 
 function addItem(){
-  setListe([...liste, input])
+  setListe([...liste, {content: input, solved: false}])
   setInput('')
 }
 
+function removeItem(){}
+
+function toggleSolved(){}
 
   return (
     <div className="App">

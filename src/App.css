@@ -39,3 +39,12 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.solved {
+  background-color: greenyellow;
+}
+
+.unsolved {
+  color: red;
+}

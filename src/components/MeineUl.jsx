@@ -13,7 +13,8 @@ function MeineUl(props) {
         //   return <li key={index}>{el}</li>
           return <MeineLi
              key={index}
-             todo={el}
+             todo={el.content}
+             solved= {el.solved}
              liste={props.liste}
              setListe={props.setListe} /> 
         })} 

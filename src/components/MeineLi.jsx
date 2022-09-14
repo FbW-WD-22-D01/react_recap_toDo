@@ -11,18 +11,30 @@ function MeineLi(props) {
        
         //  Das Listen-Array wird gefiltert und das Ergebnis in einer lokalen Variablen gespeichert
         const filteredArray = props.liste.filter((el) => {
-          return el !== props.todo
+          return el.content !== props.todo
         })
         // setListe wird benutzt um den State in der App (liste) zu verändern
         props.setListe(filteredArray)
     
     }
   
+    function toggleSolved(){
+      console.log('Props: ',props.solved, ' von ', props.todo)
+      const result = props.liste.map( (el ) => {
+        if (el.content === props.todo){
+          el.solved = !el.solved
+          return el
+        } else {
+          return el
+        }
+      })
+      props.setListe(result)
+    }
   
   return (
-    <li 
-        onClick={handleClick}> 
-     { props.todo /*das ist das einzelen ToDo aus der map-Funktion in der Ul Komponente */ } 
+    <li className={ props.solved ? 'solved' : 'unsolved'  }> 
+     <span onClick={handleClick}>{ props.todo /*das ist das einzelen ToDo aus der map-Funktion in der Ul Komponente */ } </span>
+     <button onClick={toggleSolved}>done</button>
     </li>
   )
 }
